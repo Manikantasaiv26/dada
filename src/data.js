@@ -1,3 +1,7 @@
+export function photo(file) {
+  return `${import.meta.env.BASE_URL}photos/${file}`;
+}
+
 export const PHONE_DISPLAY = "080 4567 8901";
 export const PHONE_TEL = "+918045678901";
 
@@ -44,7 +48,7 @@ const kinds = [
     capacity: 10,
     screen: "120 inch",
     base: 1599,
-    images: ["/photos/screen.jpg", "/photos/sofa.jpg", "/photos/confetti.jpg"],
+    images: [photo("screen.jpg"), photo("sofa.jpg"), photo("confetti.jpg")],
     imageAlt: "A private cinema with deep red seats",
     includes: ["Private screen", "Room sound", "Dimmer lights", "Cake table"],
     bestFor: ["Birthday", "Date night", "Farewell", "Proposal"],
@@ -56,7 +60,7 @@ const kinds = [
     capacity: 12,
     screen: "100 inch",
     base: 1299,
-    images: ["/photos/balloons.jpg", "/photos/candles-cake.jpg", "/photos/dessert.jpg"],
+    images: [photo("balloons.jpg"), photo("candles-cake.jpg"), photo("dessert.jpg")],
     imageAlt: "Balloons gathered for a birthday",
     includes: ["Birthday décor", "Private screen", "Speaker", "Cake table"],
     bestFor: ["Birthday", "Family gathering", "Farewell"],
@@ -68,7 +72,7 @@ const kinds = [
     capacity: 8,
     screen: "100 inch",
     base: 1799,
-    images: ["/photos/salon.jpg", "/photos/table.jpg", "/photos/rose.jpg"],
+    images: [photo("salon.jpg"), photo("table.jpg"), photo("rose.jpg")],
     imageAlt: "A private dining table with green velvet chairs",
     includes: ["Seated table", "Private screen", "Soft lighting", "Host on arrival"],
     bestFor: ["Anniversary", "Date night", "Family gathering"],
@@ -80,7 +84,7 @@ const kinds = [
     capacity: 8,
     screen: "85 inch",
     base: 1399,
-    images: ["/photos/cake.jpg", "/photos/dessert.jpg", "/photos/candles-cake.jpg"],
+    images: [photo("cake.jpg"), photo("dessert.jpg"), photo("candles-cake.jpg")],
     imageAlt: "A chocolate celebration cake",
     includes: ["Cake table", "Private screen", "Candle kit", "Playlist hookup"],
     bestFor: ["Birthday", "Anniversary", "Proposal"],
@@ -189,55 +193,55 @@ export const services = [
   {
     title: "A screen that is only yours",
     text: "Every Dada room has a private screen and sound that stays in the room. Play a film, a photo reel, or a message written for one person.",
-    image: "/photos/screen.jpg",
+    image: photo("screen.jpg"),
     alt: "Red seats facing a private screen",
   },
   {
     title: "Décor before you arrive",
     text: "Balloons, a floral note, or a quiet table — set for the occasion and cleared when the slot ends. You do not decorate, and you do not clean up.",
-    image: "/photos/balloons.jpg",
+    image: photo("balloons.jpg"),
     alt: "Colourful balloons for a birthday room",
   },
   {
     title: "Cake with a name on it",
     text: "Add the signature cake when you book. Candles stay in the room if you want the lights down for the song.",
-    image: "/photos/cake.jpg",
+    image: photo("cake.jpg"),
     alt: "Chocolate cake on a stand",
   },
   {
     title: "Food for the people in the room",
     text: "A vegetarian platter for the group, or a seated supper in Emerald Table. Nothing is shared with another booking.",
-    image: "/photos/table.jpg",
+    image: photo("table.jpg"),
     alt: "A plated dish at a celebration table",
   },
   {
     title: "An hour with a photographer",
     text: "Book the camera when the room is for a proposal, a farewell, or a birthday you will want to look at later. The edited set comes the next day.",
-    image: "/photos/gathering.jpg",
+    image: photo("gathering.jpg"),
     alt: "Glasses raised at a warmly lit gathering",
   },
   {
     title: "A desk that can hold the hour",
     text: "If you would rather talk it through, call the house desk. They can check a neighbourhood and keep a slot while you decide.",
-    image: "/photos/salon.jpg",
+    image: photo("salon.jpg"),
     alt: "A private table set for a small group",
   },
 ];
 
 export const gallery = [
-  { src: "/photos/screen.jpg", alt: "Private cinema with red seats", tag: "Screen" },
-  { src: "/photos/sofa.jpg", alt: "Green velvet sofa in a quiet room", tag: "Screen" },
-  { src: "/photos/balloons.jpg", alt: "Balloons in many colours", tag: "Birthday" },
-  { src: "/photos/cake.jpg", alt: "Chocolate celebration cake", tag: "Birthday" },
-  { src: "/photos/candles-cake.jpg", alt: "Birthday candles on a cake", tag: "Birthday" },
-  { src: "/photos/dessert.jpg", alt: "A birthday note plated in chocolate", tag: "Birthday" },
-  { src: "/photos/confetti.jpg", alt: "Confetti hanging in the air", tag: "Birthday" },
-  { src: "/photos/salon.jpg", alt: "Emerald chairs around a private table", tag: "Gathering" },
-  { src: "/photos/table.jpg", alt: "Supper served at the room table", tag: "Gathering" },
-  { src: "/photos/gathering.jpg", alt: "A toast under string lights", tag: "Gathering" },
-  { src: "/photos/cheers.jpg", alt: "A small group raising glasses", tag: "Gathering" },
-  { src: "/photos/rose.jpg", alt: "A red rose for an anniversary", tag: "Date night" },
-  { src: "/photos/terrace.jpg", alt: "Candles set for two at dusk", tag: "Date night" },
+  { src: photo("screen.jpg"), alt: "Private cinema with red seats", tag: "Screen" },
+  { src: photo("sofa.jpg"), alt: "Green velvet sofa in a quiet room", tag: "Screen" },
+  { src: photo("balloons.jpg"), alt: "Balloons in many colours", tag: "Birthday" },
+  { src: photo("cake.jpg"), alt: "Chocolate celebration cake", tag: "Birthday" },
+  { src: photo("candles-cake.jpg"), alt: "Birthday candles on a cake", tag: "Birthday" },
+  { src: photo("dessert.jpg"), alt: "A birthday note plated in chocolate", tag: "Birthday" },
+  { src: photo("confetti.jpg"), alt: "Confetti hanging in the air", tag: "Birthday" },
+  { src: photo("salon.jpg"), alt: "Emerald chairs around a private table", tag: "Gathering" },
+  { src: photo("table.jpg"), alt: "Supper served at the room table", tag: "Gathering" },
+  { src: photo("gathering.jpg"), alt: "A toast under string lights", tag: "Gathering" },
+  { src: photo("cheers.jpg"), alt: "A small group raising glasses", tag: "Gathering" },
+  { src: photo("rose.jpg"), alt: "A red rose for an anniversary", tag: "Date night" },
+  { src: photo("terrace.jpg"), alt: "Candles set for two at dusk", tag: "Date night" },
 ];
 
 export const stories = [
@@ -246,7 +250,7 @@ export const stories = [
     title: "A thirtieth that never reached a restaurant",
     place: "Balloon Room · Whitefield",
     occasion: "Birthday",
-    image: "/photos/balloons.jpg",
+    image: photo("balloons.jpg"),
     alt: "Balloons filling the top of the frame",
     excerpt: "Twelve people, one cake, and a screen that played the year back in nine minutes.",
     paragraphs: [
@@ -261,7 +265,7 @@ export const stories = [
     title: "An anniversary with the second song",
     place: "Emerald Table · Bandra",
     occasion: "Anniversary",
-    image: "/photos/salon.jpg",
+    image: photo("salon.jpg"),
     alt: "A dining table dressed in green and gold",
     excerpt: "They asked for the lights one step above dark, and for no one to open the door during the toast.",
     paragraphs: [
@@ -275,7 +279,7 @@ export const stories = [
     title: "The screen said it before he did",
     place: "Red Screen · Anna Nagar",
     occasion: "Proposal",
-    image: "/photos/screen.jpg",
+    image: photo("screen.jpg"),
     alt: "Empty red cinema seats in a dark room",
     excerpt: "A three-hour slot, two people, and a line written on the opening frame.",
     paragraphs: [

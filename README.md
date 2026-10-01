@@ -4,6 +4,10 @@ A private-room booking site for birthdays, anniversaries, date nights, proposals
 
 Choose a city, neighbourhood, and date, then hold a three-hour slot. Bookings stay in this browser. Payment is taken at the room, not on the page.
 
+The live page is published from this repo:
+
+https://manikantasaiv26.github.io/dada/
+
 ```bash
 npm install
 npm run dev

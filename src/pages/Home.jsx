@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Fields, RoomCard, useTitle } from "../components.jsx";
-import { cities, faqs, featured, maxISO, services, steps, stories, todayISO } from "../data.js";
+import { cities, faqs, featured, maxISO, photo, services, steps, stories, todayISO } from "../data.js";
 import { useBooking } from "../store.jsx";
 
 const SEARCH_KEY = "dada-search";
@@ -87,8 +87,8 @@ export default function Home() {
 
         <div className="hero-panel" id="reserve">
           <div className="hero-photos">
-            <img src="/photos/screen.jpg" alt="Private cinema seats in deep red" />
-            <img src="/photos/balloons.jpg" alt="Balloons arranged for a birthday" />
+            <img src={photo("screen.jpg")} alt="Private cinema seats in deep red" />
+            <img src={photo("balloons.jpg")} alt="Balloons arranged for a birthday" />
           </div>
           <form className="ticket" onSubmit={submit} noValidate>
             <div className="ticket-top">
@@ -133,12 +133,12 @@ export default function Home() {
         </div>
         <div className="occasion-grid">
           {[
-            ["Birthday", "Cake, colour, and a screen for the year in pictures.", "/photos/cake.jpg"],
-            ["Anniversary", "A table, a second song, and no neighbouring party.", "/photos/salon.jpg"],
-            ["Date night", "Low light, two seats or eight, the door shut.", "/photos/rose.jpg"],
-            ["Proposal", "A line on the opening frame, then the rest of the hour.", "/photos/screen.jpg"],
-            ["Farewell", "Enough room for the speech and the people who mean it.", "/photos/cheers.jpg"],
-            ["Family gathering", "A private table so the evening stays in the family.", "/photos/gathering.jpg"],
+            ["Birthday", "Cake, colour, and a screen for the year in pictures.", photo("cake.jpg")],
+            ["Anniversary", "A table, a second song, and no neighbouring party.", photo("salon.jpg")],
+            ["Date night", "Low light, two seats or eight, the door shut.", photo("rose.jpg")],
+            ["Proposal", "A line on the opening frame, then the rest of the hour.", photo("screen.jpg")],
+            ["Farewell", "Enough room for the speech and the people who mean it.", photo("cheers.jpg")],
+            ["Family gathering", "A private table so the evening stays in the family.", photo("gathering.jpg")],
           ].map(([name, text, image]) => (
             <Link key={name} className="occasion-card" to={`/rooms?occasion=${encodeURIComponent(name)}`}>
               <img src={image} alt="" />

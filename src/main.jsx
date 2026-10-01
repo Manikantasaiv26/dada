@@ -5,9 +5,11 @@ import App from "./App.jsx";
 import { BookingProvider } from "./store.jsx";
 import "./styles.css";
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename || undefined}>
       <BookingProvider>
         <App />
       </BookingProvider>
