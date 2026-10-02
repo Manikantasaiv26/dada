@@ -15,7 +15,7 @@ export const occasions = [
 ];
 
 export const cities = [
-  { name: "Bengaluru", areas: ["Whitefield", "Indiranagar", "Koramangala", "Jayanagar"] },
+  { name: "Bengaluru", areas: ["Whitefield"] },
 ];
 
 export const addons = [
@@ -94,12 +94,9 @@ function hash(value) {
 }
 
 export const rooms = [];
-let cursor = 0;
 cities.forEach((city) => {
   city.areas.forEach((area) => {
-    const picked = [0, 1, 2].map((offset) => kinds[(cursor + offset) % kinds.length]);
-    cursor += 1;
-    picked.forEach((kind) => {
+    kinds.forEach((kind) => {
       rooms.push({
         ...kind,
         id: `${kind.key}-${slugify(city.name)}-${slugify(area)}`,
@@ -214,7 +211,7 @@ export const services = [
   },
   {
     title: "A desk that can hold the hour",
-    text: "If you would rather talk it through, call the house desk. They can check a neighbourhood and keep a slot while you decide.",
+    text: "If you would rather talk it through, call the house desk. They can check a Whitefield room and keep a slot while you decide.",
     image: photo("salon.jpg"),
     alt: "A private table set for a small group",
   },
@@ -255,13 +252,13 @@ export const stories = [
   {
     slug: "the-second-song",
     title: "An anniversary with the second song",
-    place: "Emerald Table · Indiranagar",
+    place: "Emerald Table · Whitefield",
     occasion: "Anniversary",
     image: photo("salon.jpg"),
     alt: "A dining table dressed in green and gold",
     excerpt: "They asked for the lights one step above dark, and for no one to open the door during the toast.",
     paragraphs: [
-      "Eight years is an awkward number for a party and a good number for a table. Emerald Table in Indiranagar seats eight, which meant the couple and the six people who had been there the first time.",
+      "Eight years is an awkward number for a party and a good number for a table. Emerald Table in Whitefield seats eight, which meant the couple and the six people who had been there the first time.",
       "The screen faced the table. They did not play a film. They played one song at the start and, much later, a second one. In between there was food, a short speech that forgot its ending, and the relief of not splitting a bill with a neighbouring birthday.",
       "Dada’s anniversary rooms are built for that middle stretch: long enough to talk, private enough that a speech can fail and still be fine.",
     ],
@@ -269,14 +266,14 @@ export const stories = [
   {
     slug: "the-screen-said-yes",
     title: "The screen said it before he did",
-    place: "Red Screen · Jayanagar",
+    place: "Red Screen · Whitefield",
     occasion: "Proposal",
     image: photo("screen.jpg"),
     alt: "Empty red cinema seats in a dark room",
     excerpt: "A three-hour slot, two people, and a line written on the opening frame.",
     paragraphs: [
       "He did not want a crowd, a violin, or a restaurant that already knew. He wanted a dark room and a sentence she would read before either of them spoke.",
-      "Red Screen in Jayanagar is the quietest of the house rooms: short rows, a large screen, a door that closes properly. The line was on the first frame. The rest of the slot was a film she had picked months ago, which he had pretended not to remember.",
+      "Red Screen in Whitefield is the quietest of the house rooms: short rows, a large screen, a door that closes properly. The line was on the first frame. The rest of the slot was a film she had picked months ago, which he had pretended not to remember.",
       "Proposals at Dada stay small on purpose. The room holds the moment. It does not perform it back to a dining room.",
     ],
   },
@@ -285,8 +282,8 @@ export const stories = [
 export const steps = [
   {
     n: "01",
-    title: "Pick the neighbourhood",
-    text: "Choose a Bengaluru neighbourhood that is easy for your people. Each one keeps its own rooms.",
+    title: "The rooms are in Whitefield",
+    text: "Dada keeps its private rooms in Whitefield, Bengaluru. Pick the one that fits the night.",
   },
   {
     n: "02",
