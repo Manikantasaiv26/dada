@@ -402,6 +402,7 @@ img[src$="screen.jpg"] { object-position: center 88%; }
   backdrop-filter: blur(12px);
 }
 .fields-bar { grid-template-columns: 1.15fr 1.15fr 0.9fr 1fr; margin: 0; }
+.fields-bar.no-city { grid-template-columns: 1.2fr 0.9fr 1.1fr; }
 .date-flag {
   font-family: var(--serif);
   font-size: 1.3rem;

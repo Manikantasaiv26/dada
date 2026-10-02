@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Fields, RoomCard, useTitle } from "../components.jsx";
-import { cities, faqs, featured, maxISO, photo, services, steps, stories, todayISO } from "../data.js";
+import { areasFor, cities, faqs, featured, maxISO, photo, rooms, services, steps, stories, todayISO } from "../data.js";
 import { useBooking } from "../store.jsx";
 
 const SEARCH_KEY = "dada-search";
@@ -19,8 +19,10 @@ export default function Home() {
   const navigate = useNavigate();
   const { openCall } = useBooking();
   const saved = readSearch();
-  const [city, setCity] = useState(saved.city || "");
-  const [location, setLocation] = useState(saved.location || "");
+  const houseCity = cities[0].name;
+  const savedCity = cities.some((item) => item.name === saved.city) ? saved.city : houseCity;
+  const [city, setCity] = useState(savedCity);
+  const [location, setLocation] = useState(areasFor(savedCity).includes(saved.location) ? saved.location : "");
   const [date, setDate] = useState(saved.date || "");
   const [occasion, setOccasion] = useState(saved.occasion || "Birthday");
   const [errors, setErrors] = useState({});
@@ -71,12 +73,12 @@ export default function Home() {
           </blockquote>
           <dl className="stats">
             <div>
-              <dt>60</dt>
+              <dt>{rooms.length}</dt>
               <dd>private rooms</dd>
             </div>
             <div>
-              <dt>9</dt>
-              <dd>cities</dd>
+              <dt>{cities[0].areas.length}</dt>
+              <dd>neighbourhoods</dd>
             </div>
             <div>
               <dt>3 hr</dt>
@@ -202,16 +204,16 @@ export default function Home() {
       <section className="section wrap">
         <div className="section-head">
           <div>
-            <p className="eyebrow">Cities</p>
-            <h2>Nine cities. The room stays private in each.</h2>
+            <p className="eyebrow">Bengaluru</p>
+            <h2>Four neighbourhoods. The room stays private in each.</h2>
           </div>
         </div>
         <div className="city-grid">
-          {cities.map((cityItem, index) => (
-            <Link key={cityItem.name} to={`/rooms?city=${encodeURIComponent(cityItem.name)}`}>
+          {cities[0].areas.map((area, index) => (
+            <Link key={area} to={`/rooms?city=${encodeURIComponent(cities[0].name)}&location=${encodeURIComponent(area)}`}>
               <span>0{index + 1}</span>
-              <strong>{cityItem.name}</strong>
-              <em>{cityItem.areas.join(" · ")}</em>
+              <strong>{area}</strong>
+              <em>Bengaluru</em>
             </Link>
           ))}
         </div>

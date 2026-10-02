@@ -2,7 +2,7 @@
 
 A private-room booking site for birthdays, anniversaries, date nights, proposals, farewells, and family gatherings.
 
-Choose a city, neighbourhood, and date, then hold a three-hour slot. Bookings stay in this browser. Payment is taken at the room, not on the page.
+Choose a Bengaluru neighbourhood and a date, then hold a three-hour slot. Bookings stay in this browser. Payment is taken at the room, not on the page.
 
 The site is built to publish at:
 
