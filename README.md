@@ -21,4 +21,4 @@ npm install
 npm run dev
 ```
 
-Open the local address Vite prints. Replace the desk phone in `src/data.js` and the photos in `public/photos` with the real house before using this with customers.
+Open the local address Vite prints. The desk number is 85559 09192. Replace the photos in `public/photos` with the real house before using this with customers.

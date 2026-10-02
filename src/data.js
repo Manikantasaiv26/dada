@@ -2,8 +2,8 @@ export function photo(file) {
   return `${import.meta.env.BASE_URL}photos/${file}`;
 }
 
-export const PHONE_DISPLAY = "080 4567 8901";
-export const PHONE_TEL = "+918045678901";
+export const PHONE_DISPLAY = "85559 09192";
+export const PHONE_TEL = "+918555909192";
 
 export const occasions = [
   "Birthday",
