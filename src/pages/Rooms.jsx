@@ -4,8 +4,10 @@ import { areasFor, cities, filterRooms, formatDate } from "../data.js";
 
 export default function Rooms() {
   const [params, setParams] = useSearchParams();
-  const city = params.get("city") || "";
-  const location = params.get("location") || "";
+  const requestedCity = params.get("city") || "";
+  const city = cities.some((item) => item.name === requestedCity) ? requestedCity : cities[0].name;
+  const requestedLocation = params.get("location") || "";
+  const location = areasFor(city).includes(requestedLocation) ? requestedLocation : "";
   const date = params.get("date") || "";
   const occasion = params.get("occasion") || "";
 
@@ -45,8 +47,8 @@ export default function Rooms() {
     return `/rooms?${next}`;
   }
 
-  let heading = "Choose a city";
-  let note = "Dada keeps rooms in nine cities. Pick one to see what is open.";
+  let heading = `Private rooms in ${city}`;
+  let note = "Pick a neighbourhood to see what is open.";
   if (location) {
     heading = `${list.length} private ${list.length === 1 ? "room" : "rooms"} in ${location}`;
     note = `${city}${date ? ` · ${formatDate(date)}` : ""}${occasion ? ` · rooms for a ${occasion.toLowerCase()} are listed first` : ""}`;

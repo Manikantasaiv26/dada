@@ -77,20 +77,7 @@ export function Header() {
           <NavLink to="/" end>
             Home
           </NavLink>
-          <div className={open === "cities" ? "drop on" : "drop"}>
-            <button type="button" aria-expanded={open === "cities"} onClick={() => setOpen(open === "cities" ? null : "cities")}>
-              Cities
-              <Caret />
-            </button>
-            <div className="drop-panel" role="menu">
-              {cities.map((city) => (
-                <Link key={city.name} to={`/rooms?city=${encodeURIComponent(city.name)}`}>
-                  {city.name}
-                  <em>{city.areas.length} areas</em>
-                </Link>
-              ))}
-            </div>
-          </div>
+          <NavLink to="/rooms?city=Bengaluru">Bengaluru</NavLink>
           <NavLink to="/services">Services</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/stories">Stories</NavLink>
@@ -151,11 +138,9 @@ export function Footer() {
         <div>
           <h2>Visit</h2>
           <ul>
-            {cities.map((city) => (
-              <li key={city.name}>
-                <Link to={`/rooms?city=${encodeURIComponent(city.name)}`}>{city.name}</Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/rooms?city=Bengaluru">Bengaluru</Link>
+            </li>
           </ul>
         </div>
         <div>
@@ -219,7 +204,7 @@ export function CallDialog() {
         <p className="eyebrow">House desk</p>
         <h2 id="call-title">Book on a call</h2>
         <p>
-          Tell the desk the city, the neighbourhood, and the hour. They will check the room and hold it while you decide.
+          Tell the desk the Bengaluru neighbourhood and the hour. They will check the room and hold it while you decide.
         </p>
         <a className="phone" href={`tel:${PHONE_TEL}`}>
           {PHONE_DISPLAY}
@@ -244,9 +229,11 @@ export function Fields({ city, location, date, occasion, errors = {}, onChange, 
     onChange({ city: value, location: "" });
   }
 
+  const singleCity = cities.length === 1;
+
   return (
-    <div className={layout === "bar" ? "fields fields-bar" : "fields"}>
-      {layout === "ticket" && (
+    <div className={layout === "bar" ? `fields fields-bar${singleCity ? " no-city" : ""}` : "fields"}>
+      {layout === "ticket" && !singleCity && (
         <div className="city-line" role="group" aria-label="Cities">
           {cities.map((item) => (
             <button
@@ -262,18 +249,20 @@ export function Fields({ city, location, date, occasion, errors = {}, onChange, 
         </div>
       )}
 
-      <label className="field" htmlFor={cityId}>
-        <span>City</span>
-        <select id={cityId} value={city} aria-invalid={Boolean(errors.city)} onChange={(event) => changeCity(event.target.value)}>
-          <option value="">Select from {cities.length} cities</option>
-          {cities.map((item) => (
-            <option key={item.name} value={item.name}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-        {errors.city && <em className="field-error">{errors.city}</em>}
-      </label>
+      {!singleCity && (
+        <label className="field" htmlFor={cityId}>
+          <span>City</span>
+          <select id={cityId} value={city} aria-invalid={Boolean(errors.city)} onChange={(event) => changeCity(event.target.value)}>
+            <option value="">Select from {cities.length} cities</option>
+            {cities.map((item) => (
+              <option key={item.name} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+          {errors.city && <em className="field-error">{errors.city}</em>}
+        </label>
+      )}
 
       <label className="field" htmlFor={areaId}>
         <span>Location</span>
