@@ -4,6 +4,38 @@ import { PageIntro, useTitle } from "../components.jsx";
 import { faqs, formatDate, formatINR, gallery, rules, services, steps, stories } from "../data.js";
 import { useBooking } from "../store.jsx";
 
+export function Privacy() {
+  useTitle("Privacy");
+  return (
+    <div className="page">
+      <PageIntro
+        eyebrow="Privacy"
+        title="What stays on this phone."
+        lede="A Dada hold is kept on the device where you made it. The house does not collect those details on a server."
+      />
+      <div className="wrap prose">
+        <h2>What you enter</h2>
+        <p>
+          To hold a room you give a name, a 10-digit mobile number, a date, an occasion, a guest count, and an optional note.
+          The room, the Whitefield neighbourhood, the time slot, and any extras you add are stored with that hold.
+        </p>
+        <h2>Where it is kept</h2>
+        <p>
+          The hold is saved in this app, or in this browser if you used the website. It is not sent to Dada. Clearing the app
+          data, or releasing the hold under My bookings, removes it from the device.
+        </p>
+        <h2>The desk</h2>
+        <p>
+          Book on call opens your phone’s dialler for 85559 09192. Payment is taken at the room, not in the app. The desk can
+          answer a question about this page on that number, every day from 9:00 AM to 11:00 PM.
+        </p>
+        <h2>Photographs</h2>
+        <p>Room photographs in the app are stock images standing in for the house. They are not pictures of guests.</p>
+      </div>
+    </div>
+  );
+}
+
 export function Services() {
   useTitle("Services");
   return (

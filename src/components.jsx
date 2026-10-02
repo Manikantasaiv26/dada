@@ -151,6 +151,7 @@ export function Footer() {
             <li><Link to="/stories">Stories</Link></li>
             <li><Link to="/learn">How it works</Link></li>
             <li><Link to="/bookings">My bookings</Link></li>
+            <li><Link to="/privacy">Privacy</Link></li>
           </ul>
         </div>
         <div>
