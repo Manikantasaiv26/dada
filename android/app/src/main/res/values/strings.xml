@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dada</string>
+    <string name="title_activity_main">Dada</string>
+    <string name="package_name">house.dada.celebration</string>
+    <string name="custom_url_scheme">house.dada.celebration</string>
+</resources>

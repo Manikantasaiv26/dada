@@ -1,0 +1,13 @@
+{
+  "appId": "house.dada.celebration",
+  "appName": "Dada",
+  "webDir": "dist",
+  "backgroundColor": "#f3eee4",
+  "android": {
+    "backgroundColor": "#f3eee4"
+  },
+  "ios": {
+    "backgroundColor": "#f3eee4",
+    "contentInset": "automatic"
+  }
+}

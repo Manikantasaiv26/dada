@@ -22,3 +22,16 @@ npm run dev
 ```
 
 Open the local address Vite prints. The desk number is 85559 09192. Replace the photos in `public/photos` with the real house before using this with customers.
+
+## Android and iOS
+
+The same booking site is packaged as a phone app with Capacitor. The app id is `house.dada.celebration` and the name on the home screen is Dada. Bookings still stay on the phone, and payment is still taken at the room.
+
+```bash
+npm install
+npm run cap:sync
+```
+
+Open `android/` in Android Studio and press Run to install it on an Android phone or emulator. Publishing to Google Play is Android Studio’s signed app bundle, using a Play Console account.
+
+The iOS project is `ios/App/App.xcworkspace`. Open that in Xcode on a Mac, then run it on a simulator or iPhone. Sending it to the App Store needs an Apple Developer account and a Xcode archive. The iOS project cannot be built on Linux.
