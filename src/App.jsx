@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { CallDialog, Footer, Header } from "./components.jsx";
-import { Booked, Bookings, Gallery, Learn, Missing, Services, Stories, Story } from "./pages/Other.jsx";
+import { Booked, Bookings, Gallery, Learn, Missing, Privacy, Services, Stories, Story } from "./pages/Other.jsx";
 import Home from "./pages/Home.jsx";
 import Room from "./pages/Room.jsx";
 import Rooms from "./pages/Rooms.jsx";
@@ -37,6 +37,7 @@ export default function App() {
           <Route path="/stories" element={<Stories />} />
           <Route path="/stories/:slug" element={<Story />} />
           <Route path="/learn" element={<Learn />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/booked/:id" element={<Booked />} />
           <Route path="*" element={<Missing />} />

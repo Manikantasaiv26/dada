@@ -35,3 +35,15 @@ npm run cap:sync
 Open `android/` in Android Studio and press Run to install it on an Android phone or emulator. Publishing to Google Play is Android Studio’s signed app bundle, using a Play Console account.
 
 The iOS project is `ios/App/App.xcworkspace`. Open that in Xcode on a Mac, then run it on a simulator or iPhone. Sending it to the App Store needs an Apple Developer account and a Xcode archive. The iOS project cannot be built on Linux.
+
+## Play Store bundle
+
+Create `android/keystore.properties` on your computer and keep it out of git. It needs `storeFile`, `storePassword`, `keyAlias`, and `keyPassword`. Then:
+
+```bash
+npm run cap:sync
+cd android
+./gradlew bundleRelease
+```
+
+The file to upload is `android/app/build/outputs/bundle/release/app-release.aab`. The package name is `house.dada.celebration`. Play Console has to be opened from the Google account that will own the app. The privacy page for that listing is `/privacy`.

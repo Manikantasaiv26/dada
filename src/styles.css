@@ -47,6 +47,9 @@ a { color: inherit; }
 
 .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 .page { padding: 28px 0 10px; }
+.prose { max-width: 42rem; display: grid; gap: 10px; }
+.prose h2 { font-size: 1.7rem; margin-top: 18px; }
+.prose p { color: var(--ink-soft); }
 
 .eyebrow {
   margin: 0 0 8px;
