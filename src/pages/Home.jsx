@@ -21,8 +21,11 @@ export default function Home() {
   const saved = readSearch();
   const houseCity = cities[0].name;
   const savedCity = cities.some((item) => item.name === saved.city) ? saved.city : houseCity;
+  const savedAreas = areasFor(savedCity);
   const [city, setCity] = useState(savedCity);
-  const [location, setLocation] = useState(areasFor(savedCity).includes(saved.location) ? saved.location : "");
+  const [location, setLocation] = useState(
+    savedAreas.includes(saved.location) ? saved.location : savedAreas.length === 1 ? savedAreas[0] : "",
+  );
   const [date, setDate] = useState(saved.date || "");
   const [occasion, setOccasion] = useState(saved.occasion || "Birthday");
   const [errors, setErrors] = useState({});
@@ -77,8 +80,8 @@ export default function Home() {
               <dd>private rooms</dd>
             </div>
             <div>
-              <dt>{cities[0].areas.length}</dt>
-              <dd>neighbourhoods</dd>
+              <dt>{cities[0].areas[0]}</dt>
+              <dd>Bengaluru</dd>
             </div>
             <div>
               <dt>3 hr</dt>
@@ -95,7 +98,7 @@ export default function Home() {
           <form className="ticket" onSubmit={submit} noValidate>
             <div className="ticket-top">
               <p className="eyebrow">Reserve a room</p>
-              <h2>Where should Dada hold the night?</h2>
+              <h2>When should Dada hold the night?</h2>
             </div>
             <Fields city={city} location={location} date={date} occasion={occasion} errors={errors} onChange={onChange} />
             <button className="btn" type="submit">
@@ -115,8 +118,8 @@ export default function Home() {
             <p className="eyebrow">The house rooms</p>
             <h2>Four ways the room can feel.</h2>
           </div>
-          <Link className="text-link" to="/rooms?city=Bengaluru">
-            Browse Bengaluru
+          <Link className="text-link" to="/rooms?city=Bengaluru&location=Whitefield">
+            Browse Whitefield
           </Link>
         </div>
         <div className="room-grid two">
@@ -204,18 +207,12 @@ export default function Home() {
       <section className="section wrap">
         <div className="section-head">
           <div>
-            <p className="eyebrow">Bengaluru</p>
-            <h2>Four neighbourhoods. The room stays private in each.</h2>
+            <p className="eyebrow">Whitefield</p>
+            <h2>Every room is in Whitefield.</h2>
           </div>
-        </div>
-        <div className="city-grid">
-          {cities[0].areas.map((area, index) => (
-            <Link key={area} to={`/rooms?city=${encodeURIComponent(cities[0].name)}&location=${encodeURIComponent(area)}`}>
-              <span>0{index + 1}</span>
-              <strong>{area}</strong>
-              <em>Bengaluru</em>
-            </Link>
-          ))}
+          <Link className="text-link" to="/rooms?city=Bengaluru&location=Whitefield">
+            See the rooms
+          </Link>
         </div>
       </section>
 

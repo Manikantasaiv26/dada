@@ -77,7 +77,7 @@ export function Header() {
           <NavLink to="/" end>
             Home
           </NavLink>
-          <NavLink to="/rooms?city=Bengaluru">Bengaluru</NavLink>
+          <NavLink to="/rooms?city=Bengaluru&location=Whitefield">Whitefield</NavLink>
           <NavLink to="/services">Services</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/stories">Stories</NavLink>
@@ -139,7 +139,7 @@ export function Footer() {
           <h2>Visit</h2>
           <ul>
             <li>
-              <Link to="/rooms?city=Bengaluru">Bengaluru</Link>
+              <Link to="/rooms?city=Bengaluru&location=Whitefield">Whitefield</Link>
             </li>
           </ul>
         </div>
@@ -204,7 +204,7 @@ export function CallDialog() {
         <p className="eyebrow">House desk</p>
         <h2 id="call-title">Book on a call</h2>
         <p>
-          Tell the desk the Bengaluru neighbourhood and the hour. They will check the room and hold it while you decide.
+          Tell the desk the Whitefield room and the hour. They will check it and hold it while you decide.
         </p>
         <a className="phone" href={`tel:${PHONE_TEL}`}>
           {PHONE_DISPLAY}
@@ -230,9 +230,10 @@ export function Fields({ city, location, date, occasion, errors = {}, onChange, 
   }
 
   const singleCity = cities.length === 1;
+  const singleArea = areas.length === 1;
 
   return (
-    <div className={layout === "bar" ? `fields fields-bar${singleCity ? " no-city" : ""}` : "fields"}>
+    <div className={layout === "bar" ? `fields fields-bar${singleCity ? " no-city" : ""}${singleArea ? " no-area" : ""}` : "fields"}>
       {layout === "ticket" && !singleCity && (
         <div className="city-line" role="group" aria-label="Cities">
           {cities.map((item) => (
@@ -264,24 +265,26 @@ export function Fields({ city, location, date, occasion, errors = {}, onChange, 
         </label>
       )}
 
-      <label className="field" htmlFor={areaId}>
-        <span>Location</span>
-        <select
-          id={areaId}
-          value={location}
-          disabled={!city}
-          aria-invalid={Boolean(errors.location)}
-          onChange={(event) => onChange({ location: event.target.value })}
-        >
-          <option value="">{city ? "Choose a location" : "Choose a city first"}</option>
-          {areas.map((area) => (
-            <option key={area} value={area}>
-              {area}
-            </option>
-          ))}
-        </select>
-        {errors.location && <em className="field-error">{errors.location}</em>}
-      </label>
+      {!singleArea && (
+        <label className="field" htmlFor={areaId}>
+          <span>Location</span>
+          <select
+            id={areaId}
+            value={location}
+            disabled={!city}
+            aria-invalid={Boolean(errors.location)}
+            onChange={(event) => onChange({ location: event.target.value })}
+          >
+            <option value="">{city ? "Choose a location" : "Choose a city first"}</option>
+            {areas.map((area) => (
+              <option key={area} value={area}>
+                {area}
+              </option>
+            ))}
+          </select>
+          {errors.location && <em className="field-error">{errors.location}</em>}
+        </label>
+      )}
 
       <label className="field" htmlFor={dateId}>
         <span>Date</span>

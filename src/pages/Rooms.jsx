@@ -6,8 +6,9 @@ export default function Rooms() {
   const [params, setParams] = useSearchParams();
   const requestedCity = params.get("city") || "";
   const city = cities.some((item) => item.name === requestedCity) ? requestedCity : cities[0].name;
+  const areas = areasFor(city);
   const requestedLocation = params.get("location") || "";
-  const location = areasFor(city).includes(requestedLocation) ? requestedLocation : "";
+  const location = areas.includes(requestedLocation) ? requestedLocation : areas.length === 1 ? areas[0] : "";
   const date = params.get("date") || "";
   const occasion = params.get("occasion") || "";
 
@@ -47,8 +48,8 @@ export default function Rooms() {
     return `/rooms?${next}`;
   }
 
-  let heading = `Private rooms in ${city}`;
-  let note = "Pick a neighbourhood to see what is open.";
+  let heading = `Private rooms in ${location || city}`;
+  let note = location ? "The house rooms are in Whitefield." : "Pick a neighbourhood to see what is open.";
   if (location) {
     heading = `${list.length} private ${list.length === 1 ? "room" : "rooms"} in ${location}`;
     note = `${city}${date ? ` · ${formatDate(date)}` : ""}${occasion ? ` · rooms for a ${occasion.toLowerCase()} are listed first` : ""}`;
